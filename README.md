@@ -2,6 +2,8 @@
 
 **Version 1.0.0** · MIT License · Open Standard
 
+📖 **[Read the article on Medium](https://medium.com/@catcam_46604/ai-is-now-the-primary-reader-of-your-docs-nobody-told-your-docs-5f7103ea3281)** — *AI Is Now the Primary Reader of Your Docs. Nobody Told Your Docs.*
+
 ---
 
 ## What is HADS?
@@ -145,4 +147,5 @@ MIT. Use freely, commercially or otherwise. Attribution appreciated but not requ
 ---
 
 *HADS exists because documentation should serve everyone who reads it — human or machine.*
+
 

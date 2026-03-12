@@ -1,7 +1,6 @@
 ---
 name: hads
-description: Read, generate, and validate HADS (Human-AI Document Standard) documents. Use when asked to write technical documentation in HADS format, convert existing docs to HADS, validate a HADS document, or read/summarize a HADS document efficiently.
-version: 1.0.0
+description: Use when writing technical documentation that needs to be readable by both humans and AI models, converting existing docs to HADS format, validating a HADS document, or optimizing documentation for token-efficient AI consumption.
 ---
 
 # HADS Claude Skill

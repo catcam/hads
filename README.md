@@ -101,6 +101,31 @@ hads/
 
 ---
 
+## Why it matters at scale
+
+A Fermi estimate of what HADS adoption would mean globally:
+
+**Assumptions:**
+- ~1 billion AI queries/day touching technical docs (50M developers × 10 queries/day + enterprise agents, CI/CD pipelines, support bots)
+- HADS reduces tokens read per query from ~5,000 to ~1,500 — 70% reduction via manifest + targeted block reading
+- Energy cost: ~0.003 Wh per 1,000 tokens (GPT-4 class inference)
+- Time saved: ~2 min/query from more precise first answers and fewer follow-ups
+
+**Annual savings at full adoption:**
+
+| Metric | Value |
+|--------|-------|
+| Tokens saved/day | 3.5 trillion |
+| Electricity saved/year | **~3.8 TWh** (~22% of Croatia's annual grid consumption) |
+| Developer time saved/year | **~12 billion hours** |
+| Economic value (@ $50/hr) | **~$600 billion/year** |
+
+At 10% adoption these numbers drop proportionally — still ~$60B/year in recovered productivity.
+
+The point: structuring documentation for AI consumption is economically material at global scale, even before accounting for better code quality from more accurate AI answers.
+
+---
+
 ## Contributing
 
 HADS is an open standard. Contributions welcome:
@@ -120,3 +145,4 @@ MIT. Use freely, commercially or otherwise. Attribution appreciated but not requ
 ---
 
 *HADS exists because documentation should serve everyone who reads it — human or machine.*
+

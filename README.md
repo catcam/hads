@@ -84,6 +84,8 @@ An AI reading this extracts: method, header format, expiry, refresh endpoint —
 hads/
 ├── README.md          — this file
 ├── SPEC.md            — full formal specification
+├── case-studies/
+│   └── polymarket-bot.md     — production AI agent codebase (48% token reduction)
 ├── examples/
 │   ├── api-reference.md      — REST API documentation example
 │   ├── file-format.md        — binary file format example
@@ -92,6 +94,14 @@ hads/
 │   └── validate.py    — validates a Markdown file against HADS spec
 └── LICENSE
 ```
+
+---
+
+## Case studies
+
+Real-world measurements of HADS applied to production codebases:
+
+- **[Polymarket trading bot](case-studies/polymarket-bot.md)** — 705-line `CLAUDE.md` for an autonomous trading agent. 48% of context was version history loaded on every session. Tagging saves ~39% per typical session.
 
 ---
 
@@ -153,5 +163,3 @@ MIT. Use freely, commercially or otherwise. Attribution appreciated but not requ
 ---
 
 *HADS exists because documentation should serve everyone who reads it — human or machine.*
-
-

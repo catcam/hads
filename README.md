@@ -128,6 +128,12 @@ The point: structuring documentation for AI consumption is economically material
 
 ---
 
+## Ecosystem
+
+**[hads-skills](https://github.com/catcam/hads-skills)** — AI skills for converting documents to HADS format. Works with Claude Code, any model via system prompt, or zero-setup paste-and-run.
+
+---
+
 ## Contributing
 
 HADS is an open standard. Contributions welcome:

@@ -135,6 +135,8 @@ Specification, examples, and contribution guidelines: https://github.com/catcam/
 
 Full documentation and wiki: https://catcam.github.io/hads/
 
+DOI: https://doi.org/10.5281/zenodo.19019719
+
 ---
 
 *Position paper. Not peer-reviewed. Fermi estimates are the authors' own.*

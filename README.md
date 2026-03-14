@@ -55,6 +55,20 @@ AI instruction at the top of every HADS document tells the model what to read an
 
 ---
 
+## Before → After
+
+Same document. AI loads only what it needs.
+
+| | Full document | `[SPEC]` only |
+|--|--|--|
+| Tokens loaded | ~4,200 | ~1,100 |
+| Reduction | — | **74%** |
+| Information lost | — | **none** (facts intact) |
+
+The rest stays in the file for humans. One source. No duplication.
+
+---
+
 ## Quick example
 
 ```markdown

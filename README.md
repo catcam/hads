@@ -3,6 +3,7 @@
 **Version 1.0.0** · MIT License · Open Standard
 
 📖 **[Read the article on Medium](https://medium.com/@catcam_46604/ai-is-now-the-primary-reader-of-your-docs-nobody-told-your-docs-5f7103ea3281)** — *AI Is Now the Primary Reader of Your Docs. Nobody Told Your Docs.*
+📚 **[Full documentation](https://catcam.github.io/hads/)** — specification, writing guide, examples, ecosystem
 
 ---
 

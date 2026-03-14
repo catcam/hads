@@ -115,7 +115,19 @@ At $0.30/M tokens average inference cost: ~$380M/year at full adoption. At 10% a
 
 ---
 
-## 5. Conclusion
+## 5. Related Work
+
+**AGENTS.md** (OpenAI Codex, 2025) is a complementary convention that addresses a different problem: telling an AI coding agent *what to do* in a repository — build commands, test procedures, contribution rules. HADS addresses what to *read* — which parts of a document are authoritative, contextual, or uncertain. The two conventions are orthogonal and can coexist in the same repository. A project may use AGENTS.md to instruct an agent on workflow and HADS-annotated documentation to reduce the token cost of reading that project's specs.
+
+**CLAUDE.md / system prompt files** serve a similar instructional role for specific tools but are tool-specific and not document-level. HADS annotations travel with the document itself, independent of the agent reading it.
+
+**Retrieval-Augmented Generation (RAG)** addresses token reduction by retrieving only relevant chunks before model ingestion. RAG requires external infrastructure (embedding pipelines, vector stores, chunk boundary management) and introduces retrieval latency and potential chunk boundary errors. HADS requires no infrastructure — the document itself carries the signal. The two approaches can be combined: a RAG system that retrieves HADS-annotated chunks gains both retrieval precision and per-chunk token reduction.
+
+**Structured documentation formats** (DITA, DocBook, OpenAPI) provide semantic structure but are heavy, require specialized tooling, and are not human-writable in plain text. HADS is intentionally minimal: valid Markdown, zero tooling required, incremental adoption.
+
+---
+
+## 6. Conclusion
 
 HADS adds structure to existing documents rather than replacing them. As AI models become routine collaborators in engineering workflows, the documents those models read will increasingly need to serve two audiences simultaneously — humans reading for understanding, and models reading for task execution. A standard that satisfies both without duplication is a sustainable basis for human-AI collaborative documentation.
 

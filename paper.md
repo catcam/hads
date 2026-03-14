@@ -133,6 +133,8 @@ HADS adds structure to existing documents rather than replacing them. As AI mode
 
 Specification, examples, and contribution guidelines: https://github.com/catcam/hads
 
+Full documentation and wiki: https://catcam.github.io/hads/
+
 ---
 
 *Position paper. Not peer-reviewed. Fermi estimates are the authors' own.*

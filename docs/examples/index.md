@@ -9,6 +9,7 @@ Complete HADS documents demonstrating the standard in real use cases.
 | [REST API Reference](api-reference.md) | Endpoint definitions, auth, error codes, BUG blocks for API quirks |
 | [File Format Spec](file-format.md) | Binary format with magic bytes, field layout, encoding rules |
 | [Configuration System](configuration.md) | TOML config with required/optional fields, env overrides |
+| [Trading Bot Config](trading-bot-config.md) | Algorithmic trading parameters, venue endpoints, risk rules, strategy logic |
 
 ---
 

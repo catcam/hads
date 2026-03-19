@@ -136,7 +136,7 @@ A Fermi estimate of what HADS adoption would mean globally:
 
 **Assumptions:**
 - ~1 billion AI queries/day touching technical docs (50M developers × 10 queries/day + enterprise agents, CI/CD pipelines, support bots)
-- HADS reduces tokens read per query from ~5,000 to ~1,500 — 70% reduction via manifest + targeted block reading
+- HADS reduces tokens read per query by 7.91–36.68% across the current example corpus — 24.34% average SPEC-only reduction via manifest + targeted block reading
 - Energy cost: ~0.003 Wh per 1,000 tokens (GPT-4 class inference)
 - Time saved: ~2 min/query from more precise first answers and fewer follow-ups
 
@@ -144,8 +144,8 @@ A Fermi estimate of what HADS adoption would mean globally:
 
 | Metric | Value |
 |--------|-------|
-| Tokens saved/day | 3.5 trillion |
-| Electricity saved/year | **~3.8 TWh** (~22% of Croatia's annual grid consumption) |
+| Tokens saved/day | 1.22 trillion |
+| Electricity saved/year | **~1.33 GWh** |
 | Developer time saved/year | **~12 billion hours** |
 | Economic value (@ $50/hr) | **~$600 billion/year** |
 

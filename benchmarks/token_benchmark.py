@@ -8,6 +8,10 @@ import json
 from pathlib import Path
 import sys
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 from hads.parser import parse, to_markdown
 
 try:
@@ -15,14 +19,13 @@ try:
 except ImportError as exc:  # pragma: no cover - runtime dependency check
     raise SystemExit(
         "tiktoken is required to run this benchmark. Install it with "
-        "`python -m pip install tiktoken`."
+        "`python3 -m pip install tiktoken`."
     ) from exc
 
 
 SPEC = "SPEC"
 BUG = "BUG"
 ENCODING_NAME = "cl100k_base"
-REPO_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_PATH = REPO_ROOT / "benchmarks" / "results.json"
 EXAMPLE_DIR_CANDIDATES = (
     REPO_ROOT / "examples",

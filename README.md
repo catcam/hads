@@ -57,12 +57,12 @@ AI instruction at the top of every HADS document tells the model what to read an
 
 ## Before → After
 
-Same document. AI loads only what it needs.
+Best measured example from the current benchmark corpus. AI loads only what it needs.
 
 | | Full document | `[SPEC]` only |
 |--|--|--|
-| Tokens loaded | ~4,200 | ~1,100 |
-| Reduction | — | **74%** |
+| Tokens loaded | 1,704 | 1,079 |
+| Reduction | — | **36.68%** |
 | Information lost | — | **none** (facts intact) |
 
 The rest stays in the file for humans. One source. No duplication.
@@ -136,7 +136,7 @@ A Fermi estimate of what HADS adoption would mean globally:
 
 **Assumptions:**
 - ~1 billion AI queries/day touching technical docs (50M developers × 10 queries/day + enterprise agents, CI/CD pipelines, support bots)
-- HADS reduces tokens read per query by 7.91–36.68% across the current example corpus — 24.34% average SPEC-only reduction via manifest + targeted block reading
+- HADS reduces tokens read per query by 7.91–36.68% across the current example corpus — 24.34% average SPEC-only reduction, with the best current measured example at 36.68%
 - Energy cost: ~0.003 Wh per 1,000 tokens (GPT-4 class inference)
 - Time saved: ~2 min/query from more precise first answers and fewer follow-ups
 

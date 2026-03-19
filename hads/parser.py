@@ -23,8 +23,7 @@ import sys
 
 _VERSION_PATTERN = re.compile(r"\*\*Version\s+(\d+\.\d+\.\d+)\*\*")
 _HEADING_PATTERN = re.compile(r"^(#{1,6})\s+(.*\S)\s*$")
-_BLOCK_TAG_PATTERN = re.compile(r"^\*\*(\[(?:SPEC|NOTE|\?)\])\*\*$")
-_BUG_TAG_PATTERN = re.compile(r"^\*\*(\[BUG\])(?:\s+(.+?))?\*\*$")
+_BLOCK_TAG_PATTERN = re.compile(r"^\*\*(\[(?:SPEC|NOTE|BUG|\?)\])(?:\s+(.+?))?\*\*$")
 _LOOSE_TAG_PATTERN = re.compile(r"^\s*(?:\*\*)?\[(?:SPEC|NOTE|BUG|\?)\]")
 _THEMATIC_BREAK_PATTERN = re.compile(r"^\s{0,3}(?:-{3,}|\*{3,}|_{3,})\s*$")
 
@@ -84,6 +83,7 @@ class HADSDocument:
     version: str
     manifest: str
     blocks: list[HADSBlock]
+    _source_text: str = field(default="", repr=False, compare=False)
     _source_lines: tuple[str, ...] = field(default_factory=tuple, repr=False, compare=False)
     _title_line: str = field(default="", repr=False, compare=False)
     _version_line: str = field(default="", repr=False, compare=False)
@@ -141,6 +141,7 @@ def parse(text: str) -> HADSDocument:
         version=version,
         manifest="\n".join(manifest_lines),
         blocks=blocks,
+        _source_text=text,
         _source_lines=tuple(lines),
         _title_line=lines[title_index],
         _version_line=lines[version_index],
@@ -177,7 +178,7 @@ def to_markdown(doc: HADSDocument, include_types: list[str] | tuple[str, ...] | 
     """
 
     if include_types is None:
-        return "\n".join(doc._source_lines)
+        return doc._source_text or "\n".join(doc._source_lines)
 
     allowed = {_normalize_block_type(block_type) for block_type in include_types}
     selected = [block for block in doc.blocks if block.type in allowed]
@@ -317,6 +318,8 @@ def _consume_explicit_block(
             heading = _match_heading(line)
             if heading and heading.level >= 2:
                 break
+            if _is_thematic_break(line):
+                break
             if _parse_tag_line(line):
                 break
             if _looks_like_malformed_tag(line):
@@ -369,6 +372,8 @@ def _consume_implicit_block(
         if not in_fence:
             heading = _match_heading(line)
             if heading and heading.level >= 2:
+                break
+            if _is_thematic_break(line):
                 break
             if _parse_tag_line(line):
                 break
@@ -491,10 +496,6 @@ def _parse_tag_line(line: str) -> tuple[str, str] | None:
     """Return the normalized type and raw tag line if `line` is a HADS tag."""
 
     stripped = line.strip()
-    bug_match = _BUG_TAG_PATTERN.match(stripped)
-    if bug_match:
-        return "BUG", stripped
-
     match = _BLOCK_TAG_PATTERN.match(stripped)
     if match:
         return _TAG_TO_TYPE[match.group(1)], stripped

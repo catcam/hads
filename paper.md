@@ -6,7 +6,7 @@
 
 ## Abstract
 
-We introduce HADS (Human-AI Document Standard), a lightweight Markdown convention designed to reduce token consumption when language models query structured documents. HADS defines four semantic block types — `[SPEC]`, `[NOTE]`, `[BUG]`, and `[?]` — and an AI manifest at the document head that enables targeted reading rather than full-document ingestion. In representative engineering documents, this reduces per-query token load from approximately 5,000 to 1,500 tokens, a 70% reduction, without any duplication of content for human readers. The standard is accessible to small models (7B parameters) without chain-of-thought reasoning about document structure. A back-of-envelope analysis suggests that at scale, HADS-formatted documentation could save on the order of 3.5 trillion tokens per day globally. The reference implementation and specification are available at https://github.com/catcam/hads.
+We introduce HADS (Human-AI Document Standard), a lightweight Markdown convention designed to reduce token consumption when language models query structured documents. HADS defines four semantic block types — `[SPEC]`, `[NOTE]`, `[BUG]`, and `[?]` — and an AI manifest at the document head that enables targeted reading rather than full-document ingestion. In the current example corpus, SPEC-only extraction reduces per-query token load by 7.91–36.68%, averaging 24.34%, without any duplication of content for human readers. The standard is accessible to small models (7B parameters) without chain-of-thought reasoning about document structure. A back-of-envelope analysis suggests that at scale, HADS-formatted documentation could save on the order of 1.22 trillion tokens per day globally. The reference implementation and specification are available at https://github.com/catcam/hads.
 
 ---
 
@@ -85,7 +85,7 @@ HADS is deliberately minimal. It introduces no new file format, no schema valida
 
 ### 3.1 Token Reduction
 
-In a representative engineering document of approximately 5,000 tokens, SPEC and BUG blocks together typically constitute 25–35% of total content. A model handling an implementation query reads only SPEC blocks, reducing context to approximately 1,200–1,500 tokens. Across query types, the weighted average reduction is approximately 70% against the full-document baseline.
+In the current four-document example corpus, a model handling an implementation query by reading only SPEC blocks sees reductions ranging from 7.91% to 36.68%, with a measured average reduction of 24.34% against the full-document baseline.
 
 ### 3.2 Accessibility to Small Models
 
@@ -103,15 +103,15 @@ HADS uses standard Markdown formatting. The document renders identically in any 
 
 **Document size:** Median queried document ~5,000 tokens.
 
-**Reduction factor:** ~70% on annotated documents.
+**Reduction factor:** 24.34% average SPEC-only reduction on the current example corpus (range: 7.91% to 36.68%).
 
 ```
 Baseline:  1B queries/day × 5,000 tokens = 5.0T tokens/day
-HADS:      1B queries/day × 1,500 tokens = 1.5T tokens/day
-Savings:   3.5T tokens/day
+HADS:      1B queries/day × 3,783 tokens = 3.78T tokens/day
+Savings:   1.22T tokens/day
 ```
 
-At $0.30/M tokens average inference cost: ~$380M/year at full adoption. At 10% adoption and 50% reduction: still >0.25T tokens/day saved. The marginal cost of adoption — authoring time for annotations — is negligible relative to this.
+At $0.30/M tokens average inference cost: ~$133M/year at full adoption. At 10% adoption and the measured 24.34% average reduction: still ~0.12T tokens/day saved. The marginal cost of adoption — authoring time for annotations — is negligible relative to this.
 
 ---
 

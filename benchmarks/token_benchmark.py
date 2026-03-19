@@ -127,6 +127,8 @@ def print_table(results: list[DocumentBenchmark]) -> None:
 
     avg_reduction_spec_bug = sum(result.reduction_spec_bug for result in results) / len(results)
     avg_reduction_spec_only = sum(result.reduction_spec_only for result in results) / len(results)
+    min_reduction_spec_only = min(result.reduction_spec_only for result in results)
+    max_reduction_spec_only = max(result.reduction_spec_only for result in results)
     rows.append(
         (
             "AVERAGE REDUCTION",
@@ -155,17 +157,11 @@ def print_table(results: list[DocumentBenchmark]) -> None:
         f"{avg_reduction_spec_bug * 100:.2f}% for SPEC+BUG, "
         f"{avg_reduction_spec_only * 100:.2f}% for SPEC only."
     )
-    if avg_reduction_spec_only >= 0.70:
-        print(
-            "The example corpus supports the paper's ~70% token reduction claim "
-            "for SPEC-only extraction."
-        )
-    else:
-        print(
-            "The example corpus does not reach the paper's ~70% token reduction "
-            f"claim for SPEC-only extraction; the measured average is "
-            f"{avg_reduction_spec_only * 100:.2f}%."
-        )
+    print(
+        "SPEC-only reduction range across all example documents: "
+        f"{min_reduction_spec_only * 100:.2f}% to "
+        f"{max_reduction_spec_only * 100:.2f}%."
+    )
 
 
 def write_results(results: list[DocumentBenchmark]) -> dict[str, object]:
@@ -173,6 +169,8 @@ def write_results(results: list[DocumentBenchmark]) -> dict[str, object]:
 
     avg_reduction_spec_bug = sum(result.reduction_spec_bug for result in results) / len(results)
     avg_reduction_spec_only = sum(result.reduction_spec_only for result in results) / len(results)
+    min_reduction_spec_only = min(result.reduction_spec_only for result in results)
+    max_reduction_spec_only = max(result.reduction_spec_only for result in results)
     payload: dict[str, object] = {
         "encoding": ENCODING_NAME,
         "source_directory": next(
@@ -187,8 +185,8 @@ def write_results(results: list[DocumentBenchmark]) -> dict[str, object]:
             "document_count": len(results),
             "average_reduction_spec_bug": avg_reduction_spec_bug,
             "average_reduction_spec_only": avg_reduction_spec_only,
-            "paper_claim_reduction": 0.70,
-            "paper_claim_verified": avg_reduction_spec_only >= 0.70,
+            "min_reduction_spec_only": min_reduction_spec_only,
+            "max_reduction_spec_only": max_reduction_spec_only,
         },
     }
     RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)

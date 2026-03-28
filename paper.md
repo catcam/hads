@@ -135,7 +135,7 @@ Specification, examples, and contribution guidelines: https://github.com/catcam/
 
 Full documentation and wiki: https://catcam.github.io/hads/
 
-DOI: https://doi.org/10.5281/zenodo.19019719
+DOI: https://doi.org/10.5281/zenodo.19288202
 
 ---
 

@@ -4,7 +4,7 @@
 
 📖 **[Read the article on Medium](https://medium.com/@catcam_46604/ai-is-now-the-primary-reader-of-your-docs-nobody-told-your-docs-5f7103ea3281)** — *AI Is Now the Primary Reader of Your Docs. Nobody Told Your Docs.*
 📚 **[Full documentation](https://catcam.github.io/hads/)** — specification, writing guide, examples, ecosystem
-📄 **[Position paper](https://doi.org/10.5281/zenodo.19019719)** — DOI: 10.5281/zenodo.19019719
+📄 **[Position paper](https://doi.org/10.5281/zenodo.19288202)** — DOI: 10.5281/zenodo.19288202
 👤 **Author**: Nikša Barlović — [ORCID: 0009-0004-7421-0913](https://orcid.org/0009-0004-7421-0913)
 
 ---

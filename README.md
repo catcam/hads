@@ -61,11 +61,13 @@ Same document. AI loads only what it needs.
 
 | | Full document | `[SPEC]` only |
 |--|--|--|
-| Tokens loaded | ~4,200 | ~1,100 |
-| Reduction | — | **74%** |
+| Tokens loaded | ~4,200 | ~1,100–2,750 |
+| Reduction | — | **34–55% (measured, avg 44%)** |
 | Information lost | — | **none** (facts intact) |
 
 The rest stays in the file for humans. One source. No duplication.
+
+*Measured on real documents using the [benchmark script](benchmark.py). Results vary by document type — API references and config docs reduce more, narrative docs less.*
 
 ---
 
@@ -101,6 +103,7 @@ An AI reading this extracts: method, header format, expiry, refresh endpoint —
 hads/
 ├── README.md          — this file
 ├── SPEC.md            — full formal specification
+├── benchmark.py       — measures token reduction and accuracy per document
 ├── case-studies/
 │   └── polymarket-bot.md     — production AI agent codebase (48% token reduction)
 ├── examples/
@@ -136,22 +139,22 @@ A Fermi estimate of what HADS adoption would mean globally:
 
 **Assumptions:**
 - ~1 billion AI queries/day touching technical docs (50M developers × 10 queries/day + enterprise agents, CI/CD pipelines, support bots)
-- HADS reduces tokens read per query from ~5,000 to ~1,500 — 70% reduction via manifest + targeted block reading
+- Conservative: HADS reduces tokens read per query by 44% on average (measured across document types)
 - Energy cost: ~0.003 Wh per 1,000 tokens (GPT-4 class inference)
-- Time saved: ~2 min/query from more precise first answers and fewer follow-ups
+- Time saved: ~1 min/query from more precise first answers and fewer follow-ups
 
-**Annual savings at full adoption:**
+**Annual savings at full adoption (conservative estimate):**
 
 | Metric | Value |
 |--------|-------|
-| Tokens saved/day | 3.5 trillion |
-| Electricity saved/year | **~3.8 TWh** (~22% of Croatia's annual grid consumption) |
-| Developer time saved/year | **~12 billion hours** |
-| Economic value (@ $50/hr) | **~$600 billion/year** |
+| Tokens saved/day | ~2.2 trillion |
+| Electricity saved/year | **~2.4 TWh** (~14% of Croatia's annual grid consumption) |
+| Developer time saved/year | **~6 billion hours** |
+| Economic value (@ $50/hr) | **~$300 billion/year** |
 
-At 10% adoption these numbers drop proportionally — still ~$60B/year in recovered productivity.
+At 10% adoption these numbers drop proportionally — still ~$30B/year in recovered productivity.
 
-The point: structuring documentation for AI consumption is economically material at global scale, even before accounting for better code quality from more accurate AI answers.
+*These are Fermi estimates, not projections. The 44% reduction is measured; query volume and time savings are estimated. The point: structuring documentation for AI consumption is economically material at scale, even at conservative assumptions.*
 
 ---
 

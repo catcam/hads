@@ -104,7 +104,7 @@ Fix: Re-authenticate and store new token. Check for 401 after any account operat
 | Tool | What it does |
 |------|-------------|
 | [hads-skills](https://github.com/catcam/hads-skills) | Universal skill — converts any doc to HADS in Claude Code, Cursor, system prompt |
-| [LangChain HADSLoader](ecosystem.md#langchain) | Document loader that filters by block type. 70% token reduction vs full load |
+| [LangChain HADSLoader](ecosystem.md#langchain) | Document loader that filters by block type. 34–55% token reduction vs full load (measured) |
 | [validate.py](spec/validation.md) | CLI validator — checks any Markdown file for HADS compliance |
 
 ---

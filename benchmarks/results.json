@@ -1,0 +1,53 @@
+{
+  "encoding": "cl100k_base",
+  "source_directory": "docs/examples",
+  "documents": [
+    {
+      "document": "api-reference.md",
+      "path": "docs/examples/api-reference.md",
+      "title": "Zephyr API \u2014 Reference",
+      "full_tokens": 1704,
+      "spec_bug_tokens": 1366,
+      "spec_only_tokens": 1079,
+      "reduction_spec_bug": 0.19835680751173712,
+      "reduction_spec_only": 0.3667840375586855
+    },
+    {
+      "document": "configuration.md",
+      "path": "docs/examples/configuration.md",
+      "title": "Orion Config \u2014 Reference",
+      "full_tokens": 1798,
+      "spec_bug_tokens": 1559,
+      "spec_only_tokens": 1323,
+      "reduction_spec_bug": 0.13292547274749722,
+      "reduction_spec_only": 0.26418242491657395
+    },
+    {
+      "document": "file-format.md",
+      "path": "docs/examples/file-format.md",
+      "title": "VOXF \u2014 Voxel Container Format Reference",
+      "full_tokens": 1901,
+      "spec_bug_tokens": 1602,
+      "spec_only_tokens": 1400,
+      "reduction_spec_bug": 0.1572856391372962,
+      "reduction_spec_only": 0.2635455023671752
+    },
+    {
+      "document": "trading-bot-config.md",
+      "path": "docs/examples/trading-bot-config.md",
+      "title": "Atlas MM Bot \u2014 Trading Configuration Reference",
+      "full_tokens": 2440,
+      "spec_bug_tokens": 2438,
+      "spec_only_tokens": 2247,
+      "reduction_spec_bug": 0.0008196721311475308,
+      "reduction_spec_only": 0.07909836065573772
+    }
+  ],
+  "summary": {
+    "document_count": 4,
+    "average_reduction_spec_bug": 0.12234689788191952,
+    "average_reduction_spec_only": 0.2434025813745431,
+    "min_reduction_spec_only": 0.07909836065573772,
+    "max_reduction_spec_only": 0.3667840375586855
+  }
+}

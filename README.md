@@ -57,12 +57,12 @@ AI instruction at the top of every HADS document tells the model what to read an
 
 ## Before → After
 
-Same document. AI loads only what it needs.
+Best measured example from the current benchmark corpus. AI loads only what it needs.
 
 | | Full document | `[SPEC]` only |
 |--|--|--|
-| Tokens loaded | ~4,200 | ~1,100–2,750 |
-| Reduction | — | **34–55% (measured, avg 44%)** |
+| Tokens loaded | 1,704 | 1,079 |
+| Reduction | — | **36.68%** |
 | Information lost | — | **none** (facts intact) |
 
 The rest stays in the file for humans. One source. No duplication.
@@ -139,7 +139,7 @@ A Fermi estimate of what HADS adoption would mean globally:
 
 **Assumptions:**
 - ~1 billion AI queries/day touching technical docs (50M developers × 10 queries/day + enterprise agents, CI/CD pipelines, support bots)
-- Conservative: HADS reduces tokens read per query by 44% on average (measured across document types)
+- HADS reduces tokens read per query by 7.91–36.68% across the current example corpus — 24.34% average SPEC-only reduction, with the best current measured example at 36.68%
 - Energy cost: ~0.003 Wh per 1,000 tokens (GPT-4 class inference)
 - Time saved: ~1 min/query from more precise first answers and fewer follow-ups
 
@@ -147,14 +147,14 @@ A Fermi estimate of what HADS adoption would mean globally:
 
 | Metric | Value |
 |--------|-------|
-| Tokens saved/day | ~2.2 trillion |
-| Electricity saved/year | **~2.4 TWh** (~14% of Croatia's annual grid consumption) |
+| Tokens saved/day | 1.22 trillion |
+| Electricity saved/year | **~1.33 GWh** |
 | Developer time saved/year | **~6 billion hours** |
 | Economic value (@ $50/hr) | **~$300 billion/year** |
 
 At 10% adoption these numbers drop proportionally — still ~$30B/year in recovered productivity.
 
-*These are Fermi estimates, not projections. The 44% reduction is measured; query volume and time savings are estimated. The point: structuring documentation for AI consumption is economically material at scale, even at conservative assumptions.*
+*These are Fermi estimates, not projections. The 24.34% average reduction is measured on the current benchmark corpus; query volume and time savings are estimated. The point: structuring documentation for AI consumption is economically material at scale, even at conservative assumptions.*
 
 ---
 

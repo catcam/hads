@@ -1,0 +1,12 @@
+name: HADS Validation
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: catcam/hads-action@v1
+        with:
+          paths: "**/*.md"
+          fail_on_violation: "false"

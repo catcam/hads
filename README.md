@@ -1,5 +1,9 @@
 # HADS — Human-AI Document Standard
 
+[![HADS](https://img.shields.io/badge/HADS-1.0.0-4A90E2?style=for-the-badge&logo=markdown&logoColor=white)](https://github.com/catcam/hads)
+[![Validate](https://img.shields.io/badge/validate-hads--action-brightgreen?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/catcam/hads-action)
+[![License](https://img.shields.io/github/license/catcam/hads?style=for-the-badge)](LICENSE)
+
 **Version 1.0.0** · MIT License · Open Standard
 
 📖 **[Read the article on Medium](https://medium.com/@catcam_46604/ai-is-now-the-primary-reader-of-your-docs-nobody-told-your-docs-5f7103ea3281)** — *AI Is Now the Primary Reader of Your Docs. Nobody Told Your Docs.*
@@ -158,7 +162,27 @@ At 10% adoption these numbers drop proportionally — still ~$30B/year in recove
 
 ---
 
+## CI Integration
+
+Add HADS validation to any repository:
+
+```yaml
+# .github/workflows/hads.yml
+name: HADS Validation
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: catcam/hads-action@v1
+```
+
+---
+
 ## Ecosystem
+
+**[hads-action](https://github.com/catcam/hads-action)** — GitHub Action for CI validation. Add HADS checks to any repo in 3 lines of YAML.
 
 **[hads-skills](https://github.com/catcam/hads-skills)** — AI skills for converting documents to HADS format. Works with Claude Code, any model via system prompt, or zero-setup paste-and-run.
 

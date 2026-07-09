@@ -88,6 +88,20 @@ See [Validation](spec/validation.md) for full details.
 
 ---
 
+## Related work
+
+**Different problem, same instinct.** These tools aren't built on HADS, but they attack the same token-waste problem from a different angle.
+
+### greppy — structured context for code, not docs
+
+**Repository:** [github.com/metric-space-ai/greppy](https://github.com/metric-space-ai/greppy)
+
+HADS structures human-written documentation. greppy structures source code itself: instead of loading full files into an agent's context, it uses local tree-sitter indexing to extract only the relevant symbol blocks, parameters, docstrings, and callers, then writes that as a compact Markdown sidecar on demand. Reported ~2.3x lower token overhead and ~4x fewer rounds across 35 code-navigation tasks compared to loading or grepping full files.
+
+Worth pairing: HADS for the docs an agent reads, greppy-style AST extraction for the code it navigates. Same principle — structured Markdown instead of raw text — applied to two different inputs.
+
+---
+
 ## Add your tool
 
 Built something on HADS? Open an issue or PR at [catcam/hads](https://github.com/catcam/hads) to get listed here.

@@ -18,6 +18,23 @@ No blank line between the tag and the content that follows it.
 
 Valid: `**[SPEC]**` &nbsp;&nbsp; Invalid: `[SPEC]` · `*[SPEC]*` · `**[SPEC] Title**` (except BUG)
 
+### Why bold tags, not fenced blocks or admonitions?
+
+This comes up often enough to spell out. Two alternatives get suggested regularly:
+
+**Fenced code blocks** (` ```spec `):
+- GitHub doesn't recognize `spec` as a language, so it renders as a plain gray code block — no visual distinction from an actual code sample
+- Fenced blocks are leaf blocks in CommonMark: they can't sit inline inside a sentence or a list item, which HADS tags need to do
+- Everything ends up looking like code, which works against the "readable by humans without tooling" goal
+
+**Admonition syntax** (`:::note` / `:::spec`):
+- Not part of CommonMark or GitHub Flavored Markdown at all — GitHub renders it as literal text, colons included
+- Works in MkDocs Material, Docusaurus, and a few other specific renderers, but that's the opposite of "any editor renders it"
+
+`**[TAG]**` is plain bold text. Every Markdown renderer that has existed since Markdown existed handles it correctly, it works inline inside a sentence or a bullet, and it degrades gracefully to plain text in a raw `.txt` view. That combination — universal rendering, inline capability, zero tooling — is the actual requirement, not a stylistic preference for bold over fences.
+
+If you're rendering HADS through MkDocs or Docusaurus and want native admonition styling, a build-time preprocessor that converts `**[TAG]**` into `:::tag` for that specific pipeline is a reasonable addition — but it's tooling on top of the spec, not a change to it.
+
 ---
 
 ## [SPEC] — Authoritative fact
